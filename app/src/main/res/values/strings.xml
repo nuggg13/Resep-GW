@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ResepMakan</string>
+    <string name="lihat_detail">Lihat Detail</string>
+    <string name="nasi">Nasi Goreng</string>
+    <string name="bakso">Bakso</string>
+    <string name="ayam">Ayam Penyet</string>
+    <string name="lele">Lele goreng</string>
+    <string name="Mie">Mie Ayam</string>
+    <string name="titik">•</string>
+    <string name="deskripsi_bakso">Bakso adalah makanan khas Indonesia yang sangat populer dan banyak digemari oleh semua kalangan. Bentuknya yang bulat-bulat kecil seperti bola pingpong dan teksturnya yang kenyal membuat bakso menjadi makanan yang unik dan menggugah selera.</string>
+    <string name="deskripsi_mie">Mie ayam adalah hidangan yang terdiri dari mie kuning yang lembut, potongan daging ayam suwir yang gurih, dan kuah kaldu yang kaya rasa. Biasanya disajikan dengan sawi hijau, daun bawang, dan bawang goreng yang menambah cita rasanya.</string>
+    <string name="deskripsi_lele">Lele goreng adalah salah satu makanan favorit banyak orang, terutama di Indonesia. Ikan lele yang digoreng hingga garing dan renyah, lalu disajikan dengan sambal, lalapan, dan nasi hangat, adalah perpaduan rasa yang sulit untuk ditolak.</string>
+    <string name="deskripsi_ayam">Ayam penyet adalah hidangan khas Indonesia, terutama Jawa, yang sangat populer. Sesuai namanya, ayam goreng yang sudah digoreng garing ini akan "dipenyet" atau ditekan-tekan menggunakan ulekan batu agar lebih empuk dan mengeluarkan aroma bumbu yang lebih kuat.</string>
+    <string name="deskripsi_nasi">Nasi goreng adalah salah satu makanan favorit di Indonesia. Siapa sih yang tidak suka dengan nasi putih yang digoreng dengan bumbu yang kaya rasa? Nasi goreng bisa ditemukan di mana saja,</string>
+</resources>
