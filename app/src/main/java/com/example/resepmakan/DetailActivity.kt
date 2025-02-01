@@ -15,23 +15,26 @@ class DetailActivity : AppCompatActivity() {
 
         // Inisialisasi View
         val btnBack: ImageView = findViewById(R.id.btnBack)
-        val gambarSayur: ImageView = findViewById(R.id.gambarSayur)
-        val namaSayur: TextView = findViewById(R.id.namaSayur)
-        val deskripsiSayur: TextView = findViewById(R.id.deskripsiSayur)
+        val gambarMakanan: ImageView = findViewById(R.id.imageViewMakanan)
+        val namaMakanan: TextView = findViewById(R.id.textViewNamaMakanan)
+        val alatBahan: TextView = findViewById(R.id.textViewAlatBahan)
+        val caraMemasak: TextView = findViewById(R.id.textViewCaraMemasak)
 
         // Mendapatkan data dari Intent
         val nama = intent.getStringExtra("nama")
-        val deskripsi = intent.getStringExtra("deskripsi")
         val idGambar = intent.getIntExtra("idGambar", 0)
+        val bahan = intent.getStringExtra("alatBahan") ?: "Tidak tersedia"
+        val cara = intent.getStringExtra("caraMemasak") ?: "Tidak tersedia"
 
         // Mengatur aksi tombol kembali
         btnBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
 
-        // Mengatur data ke tampilan
-        gambarSayur.setImageResource(idGambar)
-        namaSayur.text = nama
-        deskripsiSayur.text = deskripsi
+        // Menampilkan data di tampilan
+        gambarMakanan.setImageResource(idGambar)
+        namaMakanan.text = nama
+        alatBahan.text = bahan
+        caraMemasak.text = cara
     }
 }
