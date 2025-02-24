@@ -14,11 +14,12 @@
         app:cardElevation="8dp"
         app:cardCornerRadius="16dp"
         android:padding="24dp"
-        android:background="@android:color/white">
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:orientation="vertical">
 
             <TextView
@@ -35,13 +36,15 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Username"
+                android:hint="Email"
+                android:background="@color/white"
                 app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:padding="10dp"
                     android:inputType="text"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -50,6 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
+                android:background="@color/white"
                 app:endIconMode="password_toggle"
                 android:layout_marginTop="12dp">
 
@@ -57,6 +61,7 @@
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:padding="10dp"
                     android:inputType="textPassword"/>
             </com.google.android.material.textfield.TextInputLayout>

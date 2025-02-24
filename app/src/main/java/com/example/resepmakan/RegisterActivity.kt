@@ -6,43 +6,41 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var dbHelper: DatabaseHelper
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        val etNewUsername = findViewById<EditText>(R.id.etNewUsername)
-        val etNewPassword = findViewById<EditText>(R.id.etNewPassword)
-        val btnRegister = findViewById<Button>(R.id.btnRegister)
-        val btnBackToLogin = findViewById<Button>(R.id.btnBackToLogin)
+        auth = FirebaseAuth.getInstance()
 
-        dbHelper = DatabaseHelper(this)
+        val etUsername = findViewById<EditText>(R.id.etNewUsername)
+        val etPassword = findViewById<EditText>(R.id.etNewPassword)
+        val btnRegister = findViewById<Button>(R.id.btnRegister)
 
         btnRegister.setOnClickListener {
-            val username = etNewUsername.text.toString()
-            val password = etNewPassword.text.toString()
+            val username = etUsername.text.toString().trim()
+            val password = etPassword.text.toString().trim()
 
-            if (username.isNotEmpty() && password.isNotEmpty()) {
-                val success = dbHelper.registerUser(username, password)
-                if (success) {
-                    Toast.makeText(this, "Registrasi berhasil!", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, LoginActivity::class.java))
-                    finish()
-                } else {
-                    Toast.makeText(this, "Registrasi gagal! Username mungkin sudah ada.", Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                Toast.makeText(this, "Username dan password harus diisi!", Toast.LENGTH_SHORT).show()
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Harap isi semua kolom", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
-        }
 
-        btnBackToLogin.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+            auth.createUserWithEmailAndPassword(username, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "Registrasi berhasil!", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this, LoginActivity::class.java))
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Registrasi gagal: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
     }
 }
